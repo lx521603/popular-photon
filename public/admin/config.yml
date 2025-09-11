@@ -1,17 +1,15 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: lx521603/popular-photon
   branch: main
-
-media_folder: "public/images/uploads"
-public_folder: "/images/uploads"
-
+media_folder: "src/assets/images/uploads"  # 改为源文件目录下的路径
+public_folder: "/images/uploads"           # 保持不变，这是网站访问的路径
 collections:
   - name: "posts"
     label: "Posts"
-    folder: "src/content/posts"
+    folder: "src/content/posts"            # 强烈建议改为 `src/content/`，这是 Astro 推荐的内容目录
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
