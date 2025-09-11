@@ -1,0 +1,15 @@
+backend:
+  name: github
+  repo: lx521603/popular-photon
+  branch: main
+media_folder: "src/assets/images/uploads"  # 改为源文件目录下的路径
+public_folder: "/images/uploads"           # 保持不变，这是网站访问的路径
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "src/content/posts"            # 强烈建议改为 `src/content/`，这是 Astro 推荐的内容目录
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
